@@ -18,9 +18,10 @@ namespace Pong
         static Paddle leftPaddle = new Paddle(new Point(5, 5));
         static Paddle rightPaddle = new Paddle(new Point(360, 5));
 
-        static Ball ball = new Ball(new Point(190, 190));
+        static Ball ball = new Ball(new Point(190, 190), leftPaddle, rightPaddle);
 
         PaddleController leftPControl = new PaddleController(leftPaddle, ball);
+        PaddleController rightPControl = new PaddleController(rightPaddle, ball);
 
 
         public PongForm()
@@ -34,7 +35,10 @@ namespace Pong
 
             //move enemy paddle
             leftPControl.movePaddle();
-            Debug.Write(rightPaddle.position.ToString());
+            rightPControl.movePaddle();
+
+            //move ball
+            ball.move();
 
             //draw things
             leftPaddle.draw(e.Graphics);

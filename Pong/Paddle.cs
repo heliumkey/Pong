@@ -11,6 +11,7 @@ namespace Pong
     {
         public Point position;
         public Size size = new Size(20, 60);
+        public Rectangle paddleRect;
 
         public Paddle(Point p)
         {
@@ -19,13 +20,14 @@ namespace Pong
         
         public void draw(Graphics g)
         {
-            g.FillRectangle(Brushes.White, new Rectangle(position, size));
+            paddleRect = new Rectangle(position, size);
+            g.FillRectangle(Brushes.White, paddleRect);
         }
         public void moveUp()
         {
             if (!(this.position.Y <= 5))
             {
-                this.position.Y = this.position.Y - 10;
+                this.position.Y = this.position.Y - 5;
 
             }
 
@@ -34,7 +36,7 @@ namespace Pong
         {
             if (!(this.position.Y >= 295))
             {
-                this.position.Y = this.position.Y + 10;
+                this.position.Y = this.position.Y + 5;
 
             }
 

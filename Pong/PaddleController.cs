@@ -19,13 +19,13 @@ namespace Pong
 
         public void movePaddle()
         {
-            if(!(targetPaddle.position.Y >= 295))
+            if(!(targetPaddle.position.Y >= 390))
             {
                 if (targetPaddle.position.Y < targetBall.position.Y)
                 {
                     targetPaddle.moveDown();
                 }
-                else if(targetPaddle.position.Y >= targetBall.position.Y)
+                else if(targetPaddle.position.Y > targetBall.position.Y + 5)
                 {
                     targetPaddle.moveUp();
                 }
